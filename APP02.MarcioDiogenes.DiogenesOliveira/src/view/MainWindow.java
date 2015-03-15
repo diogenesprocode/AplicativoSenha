@@ -84,20 +84,38 @@ public class MainWindow {
 		lblChamarSenha.setBounds(292, 28, 103, 16);
 		frmGerenciadorDeSenhas.getContentPane().add(lblChamarSenha);
 		
-		JButton btnChamarFila = new JButton("Chamar Fila");
-	
-		btnChamarFila.setBounds(281, 56, 117, 29);
-		frmGerenciadorDeSenhas.getContentPane().add(btnChamarFila);
+		
 		
 		JLabel lblSenhaAtual = new JLabel("SENHA ATUAL");
 		lblSenhaAtual.setBounds(480, 28, 89, 16);
 		frmGerenciadorDeSenhas.getContentPane().add(lblSenhaAtual);
 		
-		JLabel lblNewLabel = new JLabel("NORMAL13");
+		JLabel lblNewLabel = new JLabel("Inicio");
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.BOLD, 17));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(467, 56, 117, 65);
 		frmGerenciadorDeSenhas.getContentPane().add(lblNewLabel);
+                
+                JButton btnChamarFila = new JButton("Chamar Fila");
+                btnChamarFila.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frmGerenciadorDeSenhas.remove(lblNewLabel);
+                                
+                                JLabel lblNewLabel = new JLabel(jController.chamarSenha());
+                                lblNewLabel.setForeground(Color.RED);
+                                lblNewLabel.setFont(new Font("Lucida Grande", Font.BOLD, 17));
+                                lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                                lblNewLabel.setBounds(467, 56, 117, 65);
+                                frmGerenciadorDeSenhas.getContentPane().add(lblNewLabel);
+                                frmGerenciadorDeSenhas.revalidate();
+                                frmGerenciadorDeSenhas.repaint();
+                                
+			}
+		});
+	
+		btnChamarFila.setBounds(281, 56, 117, 29);
+		frmGerenciadorDeSenhas.getContentPane().add(btnChamarFila);
 	}
 }

@@ -16,10 +16,11 @@ public class Fila {
         }
     }
     
-    public void inserirNormal(String lugar){
+    public void inserirNormal(int lugar){
         Posicao posicao = new Posicao();
         posicao.proximo=null;
         posicao.numSenha=lugar;
+        posicao.tipo="Normal";
         if(semFila()){
             primeiraSenha=posicao;
         }
@@ -32,11 +33,33 @@ public class Fila {
         }
     }
     
-    public void inserirPreferencial(){
-        
+    public void inserirPreferencial(int lugar){
+        Posicao posicao = new Posicao();
+        posicao.proximo=null;
+        posicao.numSenha=lugar;
+        posicao.tipo="Prefencial";
+        if(semFila()){
+            primeiraSenha=posicao;
+        }else if(primeiraSenha.tipo.equals("Normal")){
+            posicao.proximo=primeiraSenha;
+            primeiraSenha=posicao;
+        }else{
+            Posicao proxposicao = primeiraSenha;
+            while(proxposicao.proximo.tipo.equals("Prefencial")){
+                proxposicao=proxposicao.proximo;
+            }
+            posicao.proximo=proxposicao.proximo;
+            proxposicao.proximo=posicao;
+        }
     }
     
-    public void oQueoBancoNaoFaz(){
-        
+    public String oQueoBancoNaoFaz(){
+        if(semFila()){
+            return "Fila Vazia";
+        }else{
+            
+            return primeiraSenha.numSenha +" "+ primeiraSenha.tipo;
+            
+        }
     }
 }
