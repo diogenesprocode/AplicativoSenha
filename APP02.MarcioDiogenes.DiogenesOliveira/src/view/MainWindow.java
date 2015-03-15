@@ -89,30 +89,21 @@ public class MainWindow {
 		JLabel lblSenhaAtual = new JLabel("SENHA ATUAL");
 		lblSenhaAtual.setBounds(480, 28, 89, 16);
 		frmGerenciadorDeSenhas.getContentPane().add(lblSenhaAtual);
-		
-		JLabel lblNewLabel1 = new JLabel("Inicio");
-		lblNewLabel1.setForeground(Color.RED);
-		lblNewLabel1.setFont(new Font("Lucida Grande", Font.BOLD, 17));
-		lblNewLabel1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel1.setBounds(467, 56, 117, 65);
-		frmGerenciadorDeSenhas.getContentPane().add(lblNewLabel1);
-                
+		try{
+		escreverSenha(jController.chamarSenha());
+                }catch(Exception e){
+                    escreverSenha("Inicio");
+                }
                 JButton btnChamarFila = new JButton("Chamar Fila");
                 btnChamarFila.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				frmGerenciadorDeSenhas.remove(lblNewLabel1);
-                               
-                                frmGerenciadorDeSenhas.revalidate();
-                                frmGerenciadorDeSenhas.repaint();
-                                JLabel lblNewLabel1 = new JLabel(jController.chamarSenha());
-                                lblNewLabel1.setForeground(Color.RED);
-                                lblNewLabel1.setFont(new Font("Lucida Grande", Font.BOLD, 17));
-                                lblNewLabel1.setHorizontalAlignment(SwingConstants.CENTER);
-                                lblNewLabel1.setBounds(467, 56, 117, 65);
-                                frmGerenciadorDeSenhas.getContentPane().add(lblNewLabel1);
-                                frmGerenciadorDeSenhas.revalidate();
-                                frmGerenciadorDeSenhas.repaint();
+				
+                             
+                                initialize();
+                               // escreverSenha(j);
+                                
+                                
                                 
 			}
 		});
@@ -120,4 +111,16 @@ public class MainWindow {
 		btnChamarFila.setBounds(281, 56, 117, 29);
 		frmGerenciadorDeSenhas.getContentPane().add(btnChamarFila);
 	}
+        private void escreverSenha(String texto) {
+               
+                JLabel lblNewLabel1 = new JLabel(texto);
+		lblNewLabel1.setForeground(Color.RED);
+		lblNewLabel1.setFont(new Font("Lucida Grande", Font.BOLD, 17));
+		lblNewLabel1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel1.setBounds(467, 56, 117, 65);
+		frmGerenciadorDeSenhas.getContentPane().add(lblNewLabel1);
+                frmGerenciadorDeSenhas.revalidate();
+                frmGerenciadorDeSenhas.repaint();
+        }
+        
 }

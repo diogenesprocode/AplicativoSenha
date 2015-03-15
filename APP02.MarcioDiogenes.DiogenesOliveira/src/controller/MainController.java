@@ -28,14 +28,16 @@ public class MainController {
 	
 	public String chamarSenha (){
 		System.out.println("Clicou no botão Chamar Senha");
-                
-                return jFila.oQueoBancoNaoFaz();    
+                String texto;
+                texto= jFila.Remover();
+                return texto;    
 	}
         public String chamarAtual (){
-                 if(jFila.posInicial() == null){
+                 System.out.println("foi 1"); 
+                 if(jFila.primeiraSenha == null){
                       return "Fila Vazia";
                  }else{
-                      return jFila.posInicial().numSenha +" "+ jFila.posInicial().tipo;     
+                      return jFila.primeiraSenha.numSenha +" "+ jFila.primeiraSenha.tipo;     
                  }
                 
 	}

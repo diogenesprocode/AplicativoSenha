@@ -53,7 +53,7 @@ public class Fila {
         }
     }
     
-    public String oQueoBancoNaoFaz(){
+    public String Remover(){
         if(semFila()){
             return "Fila Vazia";
         }else{
@@ -62,8 +62,5 @@ public class Fila {
             
         }
     }
-    public Posicao posInicial(){
-         return primeiraSenha;
-    }
-    
+   
 }
