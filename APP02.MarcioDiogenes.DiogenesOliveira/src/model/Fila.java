@@ -1,17 +1,35 @@
 package model;
 
 public class Fila {    
-    public Senha senha;
+    public Posicao primeiraSenha;
     
     public Fila() {            
-        senha = null;            
+        primeiraSenha = null;            
     }
     
-    public void semFila(){        
+    public boolean semFila(){ 
+        if(primeiraSenha == null){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
-    public void inserirNormal(){
-        
+    public void inserirNormal(String lugar){
+        Posicao posicao = new Posicao();
+        posicao.proximo=null;
+        posicao.numSenha=lugar;
+        if(semFila()){
+            primeiraSenha=posicao;
+        }
+        else{
+            Posicao proxposicao = primeiraSenha;
+            while(proxposicao.proximo != null){
+                proxposicao=proxposicao.proximo;
+            }
+            proxposicao.proximo=posicao;
+        }
     }
     
     public void inserirPreferencial(){
