@@ -57,9 +57,13 @@ public class Fila {
         if(semFila()){
             return "Fila Vazia";
         }else{
-            
+            primeiraSenha=primeiraSenha.proximo;
             return primeiraSenha.numSenha +" "+ primeiraSenha.tipo;
             
         }
     }
+    public Posicao posInicial(){
+         return primeiraSenha;
+    }
+    
 }
