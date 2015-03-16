@@ -114,7 +114,8 @@ public class MainWindow1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jbNovaSenhaPrefActionPerformed
 
     private void jbChamarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbChamarSenhaActionPerformed
-        jController.chamarSenha();
+         jlSenhaAtual.setText(jController.chamarSenha());
+        
     }//GEN-LAST:event_jbChamarSenhaActionPerformed
 
     private void jbNovaSenhaNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNovaSenhaNormalActionPerformed

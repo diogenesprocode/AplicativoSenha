@@ -54,13 +54,14 @@ public class Fila {
     }
     
     public String Remover(){
+        String atual;
         if(semFila()){
-            return "Fila Vazia";
-        }else{
-            primeiraSenha=primeiraSenha.proximo;
-            return primeiraSenha.numSenha +" "+ primeiraSenha.tipo;
-            
+            atual= "Fila Vazia";
+        }else {
+            atual=primeiraSenha.numSenha+" "+primeiraSenha.tipo;
+            primeiraSenha=primeiraSenha.proximo;       
         }
+        return atual;
     }
    
 }
