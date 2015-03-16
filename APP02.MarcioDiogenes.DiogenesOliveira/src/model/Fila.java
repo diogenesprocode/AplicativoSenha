@@ -45,7 +45,7 @@ public class Fila {
             primeiraSenha=posicao;
         }else{
             Posicao proxposicao = primeiraSenha;
-            while(proxposicao.proximo.tipo.equals("Prefencial")){
+            while(proxposicao.proximo!=null && proxposicao.proximo.tipo.equals("Prefencial")){
                 proxposicao=proxposicao.proximo;
             }
             posicao.proximo=proxposicao.proximo;
